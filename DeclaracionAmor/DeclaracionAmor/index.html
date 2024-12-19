@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?romantic') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .section {
+            display: none;
+        }
+
+        #intro {
+            display: block;
+            margin-top: 20%;
+        }
+
+        h1, h2 {
+            margin: 20px;
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            button#continue {
+                background-color: #007bff;
+                color: white;
+            }
+
+                button#continue:hover {
+                    background-color: #0056b3;
+                }
+
+            button#yes {
+                background-color: #38b000;
+                color: white;
+            }
+
+                button#yes:hover {
+                    background-color: #2d6a4f;
+                }
+
+            button#no {
+                background-color: #d90429;
+                color: white;
+                position: absolute;
+            }
+
+                button#no:hover {
+                    background-color: #6a040f;
+                }
+
+        .response {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Introducción -->
+    <div id="intro" class="section">
+        <h1>Hola, mi amor ❤️</h1>
+        <h2>Quiero decirte algo muy especial...</h2>
+        <button id="continue">Continuar</button>
+    </div>
+
+    <!-- Pregunta principal -->
+    <div id="main-question" class="section">
+        <h1>¿Quieres ser mi novia?</h1>
+        <button id="yes">Sí</button>
+        <button id="no">No</button>
+        <p class="response" id="response">
+            ¡Me haces el más feliz del mundo! ❤️<br>
+            Eres la persona más especial para mí, y prometo hacerte feliz cada día de nuestras vidas. 💕
+        </p>
+    </div>
+
+    <script>
+        // Mostrar la pregunta al hacer clic en "Continuar"
+        document.getElementById('continue').addEventListener('click', () => {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('main-question').style.display = 'block';
+        });
+
+        // Mostrar el mensaje al presionar "Sí"
+        document.getElementById('yes').addEventListener('click', () => {
+            document.getElementById('response').style.display = 'block';
+        });
+
+        // Mover el botón "No" aleatoriamente
+        const buttonNo = document.getElementById('no');
+        buttonNo.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - buttonNo.offsetWidth);
+            const y = Math.random() * (window.innerHeight - buttonNo.offsetHeight);
+            buttonNo.style.left = `${x}px`;
+            buttonNo.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
